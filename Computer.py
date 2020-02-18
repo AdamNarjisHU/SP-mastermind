@@ -21,7 +21,7 @@ def computer():
     clean_list = mogelijkheden[:]
     pogingen = 0
     for i in mogelijkheden:
-        pogingen = pogingen + 1
+        pogingen += 1
         eerste_gok = random.choice(mogelijkheden)
         eerste_feedback = pins(eerste_gok, secret_list)
         verg_feedback = pins(i, eerste_gok)

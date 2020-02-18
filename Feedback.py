@@ -11,7 +11,7 @@ def wit_pin(gok_list, passw):
     for w in gok_list:
         if w in wit_list:
             wit_list.remove(w)
-            wit = wit + 1
+            wit += 1
     return wit
 
 

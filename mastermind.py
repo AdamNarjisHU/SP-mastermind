@@ -1,7 +1,7 @@
 # Imports
 import random
 from Feedback import pins
-from Heuristiek import algoritme1
+from algoritme1 import eigen_algoritme
 
 passw = []
 while len(passw) < 4:
@@ -9,8 +9,8 @@ while len(passw) < 4:
 def secret():
     gok = str(input("Raad 4 getallen tussen de 1 en 6: "))
     gok_list = [int(i) for i in gok]
-    while True:
-        # tel = 10
+    tel = 10
+    while tel > 0:
         for a in gok_list:
             if a > 6 or a < 1:
                 print("Alleen getallen tussen de 1 en 6, raad nogmaals")
@@ -24,8 +24,8 @@ def secret():
             print("GOED GERADEN!")
             break
         elif gok_list != passw:
-            # tel -= 1
-            # print(feedback(gok_list, passw), "= (wit, zwart)", "\n", tel, "pogingen over")
+            tel = tel - 1
+            print(pins(gok_list, passw), "= (wit, zwart)\n{} pogingen over".format(tel))
             print(pins(gok_list, passw), "= (zwart, wit)")
             print(passw)
             secret()
@@ -38,13 +38,14 @@ def menu():
     if keuze.lower() == "a":
         secret()
     elif keuze.lower() == "b":
-        algoritme1()
+        eigen_algoritme()
     elif keuze.lower() == "c":
         print("\n***Bij de gamemode -Raad de geheime code- wordt er een 4 cijferige code "
               "gegenereerd en is het aan u de taak om deze binnen 10 pogingen te raden."
               "\nLukt dat niet dan heeft de computer gewonnen.***"
               "\n\n***Bij de gamemode -Wees de gamemaster- mag uzelf een 4 cijferige code opmaken "
-              "en raadt de computer d.m.v. algoritmes."
-              "\nLukt dat de computer niet in 10 pogingen dan bent u de winnaar!")
+              "en raadt de computer d.m.v. algoritmes de geheime code."
+              "\nLukt dat de computer niet in 10 pogingen dan bent u de winnaar!\n\n")
+        menu()
 menu()
 

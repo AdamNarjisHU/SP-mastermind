@@ -25,16 +25,16 @@ def make_list():
     return sorted_list
 
 
-def algoritme1():
+def eigen_algoritme():
     secret = input("Maak een geheime code aan met 4 getallen tussen de 1 en 6: ")
     secret_list = [int(i) for i in secret] # input in list zetten
     for x in secret_list:
         if x > 6 or x < 1:
             secret = input("Maak een geheime code aan met 4 getallen tussen de 0 en 6: ")
-            print("Gebruik alleen getallen onder de 7.\n", secret)
+            print("Gebruik alleen getallen onder de 7.\n")
     if len(secret_list) != 4:
         secret = input("Maak een geheime code aan met 4 getallen tussen de 0 en 6: ")
-        print("Maak een 4 cijferige code aan.\n", secret)
+        print("Maak een 4 cijferige code aan.\n")
     print("Uw geheime code is", secret_list)
     time.sleep(1)
     print("De computer gaat nu beginnen met raden.")
@@ -42,7 +42,7 @@ def algoritme1():
     pogingen = 0
     gok = 0
     while gok != 1:
-        pogingen = pogingen + 1
+        pogingen += 1
         eerste_gok = mogelijkheden[0]
         eerste_feedback = pins(eerste_gok, secret_list)
         if eerste_feedback == (4, 0): # feedback gebruiken om te checken of het is geraden
