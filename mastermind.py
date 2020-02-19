@@ -2,10 +2,13 @@
 import random
 from Feedback import pins
 from algoritme1 import eigen_algoritme
+from Computer import simple_strat
 
 passw = []
 while len(passw) < 4:
     passw.append(random.randint(1, 6))
+
+
 def secret():
     gok = str(input("Raad 4 getallen tussen de 1 en 6: "))
     gok_list = [int(i) for i in gok]
@@ -47,5 +50,6 @@ def menu():
               "en raadt de computer d.m.v. algoritmes de geheime code."
               "\nLukt dat de computer niet in 10 pogingen dan bent u de winnaar!\n\n")
         menu()
-menu()
 
+
+menu()

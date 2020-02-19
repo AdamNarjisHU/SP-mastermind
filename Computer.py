@@ -3,7 +3,7 @@ import random
 from Feedback import pins
 
 
-def computer():
+def simple_strat():
     password = []
     secret = input("Maak een geheime code aan met 4 getallen tussen de 1 en 6: ")
     secret_list = [int(i) for i in secret]
@@ -37,4 +37,4 @@ def computer():
         print("U heeft gewonnen!", eerste_gok)
     if pogingen < 11:
         print("De computer heeft gewonnen :[", eerste_gok)
-computer()
+

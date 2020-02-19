@@ -2,11 +2,13 @@ import time
 import random
 from Feedback import pins
 
+
 def heuristiek(ranglijst):
     set_ranglijst = set(ranglijst)
     length = len(set_ranglijst)
     ranglijst.append(length)
     return ranglijst
+
 
 def make_list():
     list = []
@@ -27,7 +29,7 @@ def make_list():
 
 def eigen_algoritme():
     secret = input("Maak een geheime code aan met 4 getallen tussen de 1 en 6: ")
-    secret_list = [int(i) for i in secret] # input in list zetten
+    secret_list = [int(i) for i in secret]  # input in list zetten
     for x in secret_list:
         if x > 6 or x < 1:
             secret = input("Maak een geheime code aan met 4 getallen tussen de 0 en 6: ")
@@ -45,8 +47,8 @@ def eigen_algoritme():
         pogingen += 1
         eerste_gok = mogelijkheden[0]
         eerste_feedback = pins(eerste_gok, secret_list)
-        if eerste_feedback == (4, 0): # feedback gebruiken om te checken of het is geraden
-            gok = 1 # waarde van gok gebruiken om te bepalen of het is geraden
+        if eerste_feedback == (4, 0):  # feedback gebruiken om te checken of het is geraden
+            gok = 1  # waarde van gok gebruiken om te bepalen of het is geraden
             break
         for i in mogelijkheden:
             verg_feedback = pins(i, eerste_gok)
@@ -56,6 +58,6 @@ def eigen_algoritme():
     print("Geraden in", pogingen, "poging(en).")
     time.sleep(1)
     if pogingen > 10:
-        print("U heeft gewonnen!", eerste_gok) # eerste_gok printen ter controle of de code echt is geraden
+        print("U heeft gewonnen!", eerste_gok)  # eerste_gok printen ter controle of de code echt is geraden
     if pogingen < 11:
-        print("De computer heeft gewonnen :[", eerste_gok) # eerste_gok printen ter controle of de code echt is geraden
+        print("De computer heeft gewonnen :[", eerste_gok)  # eerste_gok printen ter controle of de code echt is geraden
